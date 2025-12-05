@@ -1,0 +1,20 @@
+// routes/index.tsx
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import Protected from "./Protected";
+import Home from "../pages/Home";
+import About from "../pages/About";
+import Login from "../pages/Login";
+
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Protected />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "about", element: <About /> },
+      { path: "*", element: <Navigate to="/" replace /> },
+    ],
+  },
+  { path: "/login", element: <Login /> },
+  { path: "*", element: <Navigate to="/login" replace /> },
+]);
