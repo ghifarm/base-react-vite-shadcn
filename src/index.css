@@ -4,3 +4,69 @@
 body {
   font-family: "Montserrat Variable", sans-serif;
 }
+
+/* default color */
+@theme {
+  /* ===============================
+     PRIMARY (Blue)
+  =============================== */
+  --color-pertamina-primary-600: #005fad;
+  --color-pertamina-primary-500: #1a75c7;
+  --color-pertamina-primary-400: #4a9de3;
+  --color-pertamina-primary-300: #7bc1f4;
+  --color-pertamina-primary-200: #afddfb;
+  --color-pertamina-primary-100: #ddf0ff;
+
+  /* ===============================
+     SECONDARY RED
+  =============================== */
+  --color-pertamina-red-600: #e20020;
+  --color-pertamina-red-500: #f24153;
+  --color-pertamina-red-400: #f56f79;
+  --color-pertamina-red-300: #f9a5ad;
+  --color-pertamina-red-200: #fcd2d6;
+  --color-pertamina-red-100: #feedef;
+
+  /* ===============================
+     SECONDARY GREEN
+  =============================== */
+  --color-pertamina-green-600: #b5c500;
+  --color-pertamina-green-500: #c7d521;
+  --color-pertamina-green-400: #d4e04f;
+  --color-pertamina-green-300: #e2eb7c;
+  --color-pertamina-green-200: #eef3ad;
+  --color-pertamina-green-100: #f7f9d9;
+
+  /* ===============================
+     ACCENTS (Harmonic)
+  =============================== */
+  --color-pertamina-accent-orange: #ff8a00;
+  --color-pertamina-accent-orange-light: #ffc179;
+
+  --color-pertamina-accent-purple: #7a3ce3;
+  --color-pertamina-accent-purple-light: #c3a7f4;
+
+  /* ===============================
+     BRAND — ORIGINAL COLORS
+  =============================== */
+  --color-pertamina-primary: #005fad;
+  --color-pertamina-blue: #005fad;
+  --color-pertamina-black: #050403;
+  --color-pertamina-green: #b5c500;
+  --color-pertamina-red: #e20020;
+
+  /* ===============================
+     SEMANTIC COLORS
+  =============================== */
+  --color-semantic-success: #4caf50;
+  --color-semantic-warning: #ffb300;
+  --color-semantic-error: #e53935;
+  --color-semantic-info: #2196f3;
+
+    /* ===============================
+     PERTAMINA PASTELS
+  =============================== */
+  --color-pertamina-pastel-blue: #0073B2;
+  --color-pertamina-pastel-pink: #E48481;
+  --color-pertamina-pastel-brown: #843534;
+}
