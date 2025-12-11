@@ -10,9 +10,9 @@ export default function Home() {
   if (isLoading) return <p>Loading...</p>;
 
   return (
-    <div>
+    <div className="h-[1000px] p-4">
       <h1 className="text-xl mb-3">Home</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <div>{JSON.stringify(data, null, 2)}</div>
     </div>
   );
 }

@@ -1,62 +1,72 @@
 import { Link, Outlet } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "@/store/userAuth";
-import Sidebar from "@/components/widget/Sidebar";
+import Navbar from "@/components/widget/Navbar";
 import { Menu } from "lucide-react";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/widget/AppSidebar";
 
 export default function MainLayout() {
-  const user = useAuth((s) => s.user);
-  const logout = useAuth((s) => s.logout);
+  const user = useAuth((s) => s.profile);
+  const logout = useAuth.getState().logout; // get function reference
 
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
 
   return (
-    <div className="flex bg-gray-50 min-h-screen text-gray-900">
-      {/* Desktop Sidebar */}
-      
+    <SidebarProvider open={sidebarOpen} onOpenChange={setSidebarOpen}>
+      <div className="flex bg-gray-50 min-h-screen text-gray-900">
+        {/* Navbar fixed di atas */}
 
-      {/* Mobile Sidebar (Animated) */}
+        {/* Sidebar fixed kiri */}
+        <AppSidebar />
 
-      {/* MAIN CONTENT */}
-      <main className="flex-1 p-6 transition-all duration-300">
-        {/* Top Navbar */}
-        <nav className="flex items-center w-full gap-4 mb-6 border-b pb-3 bg-white p-3 rounded-xl shadow-sm">
-          {/* Trigger Sidebar (Mobile Only) */}
-          <button
-            onClick={() => setSidebarOpen(true)}
-            className=" p-2 rounded-md hover:bg-gray-100"
-          >
-            <Menu />
-          </button>
+        {/* Desktop Sidebar */}
 
-          <Link className="font-medium hover:
-          text-blue-600" to="/">
-            Home
-          </Link>
-          <Link className="font-medium hover:text-blue-600" to="/about">
-            About
-          </Link>
+        {/* Mobile Sidebar (Animated) */}
 
-          {user ? (
-            <button
-              onClick={logout}
-              className="text-red-500 ml-auto hover:underline"
-            >
-              Logout
-            </button>
-          ) : (
+        {/* MAIN CONTENT */}
+        <main className="flex flex-col h-screen p-4">
+          {/* Top Navbar */}
+          <header className="sticky top-4 z-50">
+            <Navbar profile={user || { name: "Guest" }} logout={logout} />
+          </header>
+
+          {/* Routed Page */}
+          <section className="flex-1 mt-2 overflow-auto bg-gray-200 rounded-2xl">
+            <Outlet />
+          </section>
+
+          {/* <nav className="flex items-center w-full gap-4 mb-6 border-b pb-3 bg-white p-3 rounded-xl shadow-sm">
             <Link
-              className="ml-auto text-blue-600 font-medium hover:underline"
-              to="/login"
+              className="font-medium hover:
+          text-blue-600"
+              to="/"
             >
-              Login
+              Home
             </Link>
-          )}
-        </nav>
+            <Link className="font-medium hover:text-blue-600" to="/about">
+              About
+            </Link>
+            <div>Welcome, {user ? user.name : "Guest"}!</div>
 
-        {/* Routed Page */}
-        <Outlet />
-      </main>
-    </div>
+            {user ? (
+              <button
+                onClick={() => logout()}
+                className="text-red-500 ml-auto hover:underline"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link
+                className="ml-auto text-blue-600 font-medium hover:underline"
+                to="/login"
+              >
+                Login
+              </Link>
+            )}
+          </nav> */}
+        </main>
+      </div>
+    </SidebarProvider>
   );
 }

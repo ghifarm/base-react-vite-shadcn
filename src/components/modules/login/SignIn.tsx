@@ -9,13 +9,13 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Mail, Eye } from "lucide-react";
+import { User, Eye } from "lucide-react";
 import { motion } from "motion/react";
 import { FormikProps } from "formik";
 import { useState } from "react";
 
 interface FormValues {
-  email: string;
+  identifier: string;
   password: string;
 }
 
@@ -31,11 +31,13 @@ export default function SignIn({ formik }: Props) {
         <motion.div whileTap={{ scale: 0.95 }}>
           <InputGroup className="border-2 py-6 px-3 border-gray-200 rounded-3xl focus-within:border-pertamina-pastel-blue transition-all duration-200">
             <InputGroupInput
-              id="email"
-              placeholder="Masukkan E-Mail"
+              id="identifier"
+              type="text"
+              tabIndex={1}
+              placeholder="Masukkan Username atau E-Mail"
               className="!pl-1 !text-gray-600"
               onChange={formik.handleChange}
-              value={formik.values.email}
+              value={formik.values.identifier}
             />
             <InputGroupAddon align="inline-end">
               <Tooltip>
@@ -44,11 +46,11 @@ export default function SignIn({ formik }: Props) {
                     className="rounded-full text-gray-400"
                     size="icon-xs"
                   >
-                    <Mail className="size-6" />
+                    <User className="size-6" />
                   </InputGroupButton>
                 </TooltipTrigger>
                 <TooltipContent className="bg-white border-2 border-gray-300 rounded-lg">
-                  Mail
+                  Username atau E-Mail
                 </TooltipContent>
               </Tooltip>
             </InputGroupAddon>
@@ -59,8 +61,11 @@ export default function SignIn({ formik }: Props) {
             <InputGroupInput
               id="password"
               placeholder="Masukkan Password"
+              tabIndex={2}
               className={`!pl-1 !text-gray-600 ${
-                formik.values.password && psType == false ? "password-big-dots" : ""
+                formik.values.password && psType == false
+                  ? "password-big-dots"
+                  : ""
               }`}
               type={psType ? "text" : "password"}
               onChange={formik.handleChange}
@@ -68,7 +73,7 @@ export default function SignIn({ formik }: Props) {
             />
             <InputGroupAddon align="inline-end">
               <InputGroupButton
-                className="rounded-full text-gray-400 cursor-pointer hover:text-pertamina-pastel-blue"
+                className="rounded-full text-gray-400 hover:text-pertamina-pastel-blue"
                 size="icon-xs"
                 onMouseEnter={() => setPsType(true)}
                 onMouseLeave={() => setPsType(false)}

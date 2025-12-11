@@ -4,9 +4,6 @@ import { useAuth } from "@/store/userAuth";
 import MainLayout from "@/layout/MainLayout";
 
 export default function Protected() {
-  const token = useAuth((s) => s.token);
-
-  if (!token) return <Navigate to="/login" replace />;
-
-  return <MainLayout />;
+  const isAuth = useAuth((s) => s.isAuthenticated);
+  return isAuth ? <MainLayout /> : <Navigate to="/login" replace />;
 }
