@@ -1,0 +1,33 @@
+.password-big-dots {
+  font-weight: 900; /* biar bullet tebal */
+  letter-spacing: 3px; /* jarak antar bullet */
+}
+
+/* Override toast default */
+[data-sonner-toast] {
+  background-color: #ffffff !important; /* putih */
+  color: #000000 !important;
+  backdrop-filter: none !important;
+  opacity: 1 !important;
+}
+
+/* Untuk success */
+[data-sonner-toast][data-type="success"] {
+  background-color: #22c55e !important; /* green-500 */
+  color: white !important;
+  border-radius: 12px !important;
+}
+
+/* Untuk warning */
+[data-sonner-toast][data-type="warning"] {
+  background-color: #f59e0b !important; /* amber-500 */
+  color: white !important;
+  border-radius: 12px !important;
+}
+
+/* Untuk error */
+[data-sonner-toast][data-type="error"] {
+  background-color: #ef4444 !important; /* red-500 */
+  color: white !important;
+  border-radius: 12px !important;
+}
