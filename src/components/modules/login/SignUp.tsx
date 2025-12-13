@@ -59,7 +59,7 @@ export default function SignUp({ formik }: Props) {
                     <User className="size-6" />
                   </InputGroupButton>
                 </TooltipTrigger>
-                <TooltipContent className="bg-white border-2 border-gray-300 rounded-lg">
+                <TooltipContent>
                   Nama
                 </TooltipContent>
               </Tooltip>
@@ -112,7 +112,7 @@ export default function SignUp({ formik }: Props) {
                     <Phone className="size-6" />
                   </InputGroupButton>
                 </TooltipTrigger>
-                <TooltipContent className="bg-white border-2 border-gray-300 rounded-lg">
+                <TooltipContent>
                   Nomor Telepon
                 </TooltipContent>
               </Tooltip>
@@ -165,7 +165,7 @@ export default function SignUp({ formik }: Props) {
                     <UserRound className="size-6" />
                   </InputGroupButton>
                 </TooltipTrigger>
-                <TooltipContent className="bg-white border-2 border-gray-300 rounded-lg">
+                <TooltipContent>
                   Username
                 </TooltipContent>
               </Tooltip>
@@ -218,7 +218,7 @@ export default function SignUp({ formik }: Props) {
                     <Mail className="size-6" />
                   </InputGroupButton>
                 </TooltipTrigger>
-                <TooltipContent className="bg-white border-2 border-gray-300 rounded-lg">
+                <TooltipContent>
                   Mail
                 </TooltipContent>
               </Tooltip>

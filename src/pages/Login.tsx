@@ -146,13 +146,13 @@ export default function Login() {
               <TabsList className="w-full h-12 border-2 border-gray-200 rounded-3xl gap-2 p-1 text-gray-600">
                 <TabsTrigger
                   value="sign-in"
-                  className="data-[state=active]:bg-pertamina-pastel-blue data-[state=active]:text-white data-[state=active]:rounded-2xl data-[state=active]:shadow-none transition-all duration-200 cursor-pointer"
+                  className="w-full h-10 data-[state=active]:bg-pertamina-pastel-blue data-[state=active]:text-white data-[state=active]:rounded-2xl data-[state=active]:shadow-none transition-all duration-200 cursor-pointer"
                 >
                   <Typography variant="button-small">Masuk</Typography>
                 </TabsTrigger>
                 <TabsTrigger
                   value="sign-up"
-                  className="data-[state=active]:bg-pertamina-pastel-blue data-[state=active]:text-white data-[state=active]:rounded-2xl data-[state=active]:shadow-none transition-all duration-200 cursor-pointer"
+                  className="w-full h-10 data-[state=active]:bg-pertamina-pastel-blue data-[state=active]:text-white data-[state=active]:rounded-2xl data-[state=active]:shadow-none transition-all duration-200 cursor-pointer"
                 >
                   <Typography variant="button-small">Daftar</Typography>
                 </TabsTrigger>
