@@ -1,12 +1,12 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@plugin "tailwindcss-animate";
-@import "tw-animate-css";
+@plugin 'tailwindcss-animate';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 body {
-  font-family: "Montserrat Variable", sans-serif;
+  font-family: 'Montserrat Variable', sans-serif;
 }
 
 /* default color */
@@ -67,16 +67,16 @@ body {
   --color-semantic-error: #e53935;
   --color-semantic-info: #2196f3;
 
-    /* ===============================
+  /* ===============================
      PERTAMINA PASTELS
   =============================== */
-  --color-pertamina-pastel-blue: #0073B2;
-  --color-pertamina-pastel-pink: #E48481;
+  --color-pertamina-pastel-blue: #0073b2;
+  --color-pertamina-pastel-pink: #e48481;
   --color-pertamina-pastel-brown: #843534;
 }
 
 :root {
-  --sidebar: oklch(0.985 0 0);
+  --sidebar: oklch(92.8% 0.006 264.531);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);

@@ -1,5 +1,5 @@
-import axios from "axios";
-import { useAuth } from "@/store/userAuth";
+import axios from 'axios';
+import { useAuth } from '@/store/userAuth';
 
 export const api = axios.create({ baseURL: import.meta.env.VITE_API_URL });
 
@@ -25,5 +25,5 @@ api.interceptors.response.use(
       }
     }
     return Promise.reject(error);
-  }
+  },
 );

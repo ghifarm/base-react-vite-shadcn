@@ -3,16 +3,12 @@ import {
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "@/components/ui/input-group";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Mail, Eye, User, UserRound, Phone } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
-import { FormikProps } from "formik";
-import { useState } from "react";
+} from '@/components/ui/input-group';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { Mail, Eye, User, UserRound, Phone } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import { FormikProps } from 'formik';
+import { useState } from 'react';
 
 interface FormValues {
   name: string;
@@ -34,10 +30,8 @@ export default function SignUp({ formik }: Props) {
         <motion.div whileTap={{ scale: 0.95 }}>
           <InputGroup
             className={`${
-              formik.touched.name && formik.errors.name
-                ? "!border-pertamina-red"
-                : ""
-            } border-2 py-6 px-3 border-gray-200 rounded-3xl focus-within:border-pertamina-pastel-blue transition-all duration-200`}
+              formik.touched.name && formik.errors.name ? '!border-pertamina-red' : ''
+            } focus-within:border-pertamina-pastel-blue rounded-3xl border-2 border-gray-200 px-3 py-6 transition-all duration-200`}
           >
             <InputGroupInput
               id="name"
@@ -52,16 +46,11 @@ export default function SignUp({ formik }: Props) {
             <InputGroupAddon align="inline-end">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <InputGroupButton
-                    className="rounded-full text-gray-400"
-                    size="icon-xs"
-                  >
+                  <InputGroupButton className="rounded-full text-gray-400" size="icon-xs">
                     <User className="size-6" />
                   </InputGroupButton>
                 </TooltipTrigger>
-                <TooltipContent>
-                  Nama
-                </TooltipContent>
+                <TooltipContent>Nama</TooltipContent>
               </Tooltip>
             </InputGroupAddon>
           </InputGroup>
@@ -73,12 +62,10 @@ export default function SignUp({ formik }: Props) {
                 exit={{ opacity: 0, scale: 0 }}
                 transition={{
                   duration: 0.2,
-                  scale: { type: "spring", visualDuration: 0.2, bounce: 0.2 },
+                  scale: { type: 'spring', visualDuration: 0.2, bounce: 0.2 },
                 }}
               >
-                <p className="ps-2 text-pertamina-red text-sm">
-                  {formik.errors.name}
-                </p>
+                <p className="text-pertamina-red ps-2 text-sm">{formik.errors.name}</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -87,10 +74,8 @@ export default function SignUp({ formik }: Props) {
         <motion.div whileTap={{ scale: 0.95 }}>
           <InputGroup
             className={`${
-              formik.touched.phone && formik.errors.phone
-                ? "!border-pertamina-red"
-                : ""
-            } border-2 py-6 px-3 border-gray-200 rounded-3xl focus-within:border-pertamina-pastel-blue transition-all duration-200`}
+              formik.touched.phone && formik.errors.phone ? '!border-pertamina-red' : ''
+            } focus-within:border-pertamina-pastel-blue rounded-3xl border-2 border-gray-200 px-3 py-6 transition-all duration-200`}
           >
             <InputGroupInput
               id="phone"
@@ -105,16 +90,11 @@ export default function SignUp({ formik }: Props) {
             <InputGroupAddon align="inline-end">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <InputGroupButton
-                    className="rounded-full text-gray-400"
-                    size="icon-xs"
-                  >
+                  <InputGroupButton className="rounded-full text-gray-400" size="icon-xs">
                     <Phone className="size-6" />
                   </InputGroupButton>
                 </TooltipTrigger>
-                <TooltipContent>
-                  Nomor Telepon
-                </TooltipContent>
+                <TooltipContent>Nomor Telepon</TooltipContent>
               </Tooltip>
             </InputGroupAddon>
           </InputGroup>
@@ -126,12 +106,10 @@ export default function SignUp({ formik }: Props) {
                 exit={{ opacity: 0, scale: 0 }}
                 transition={{
                   duration: 0.2,
-                  scale: { type: "spring", visualDuration: 0.2, bounce: 0.2 },
+                  scale: { type: 'spring', visualDuration: 0.2, bounce: 0.2 },
                 }}
               >
-                <p className="ps-2 text-pertamina-red text-sm">
-                  {formik.errors.phone}
-                </p>
+                <p className="text-pertamina-red ps-2 text-sm">{formik.errors.phone}</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -140,10 +118,8 @@ export default function SignUp({ formik }: Props) {
         <motion.div whileTap={{ scale: 0.95 }}>
           <InputGroup
             className={`${
-              formik.touched.username && formik.errors.username
-                ? "!border-pertamina-red"
-                : ""
-            } border-2 py-6 px-3 border-gray-200 rounded-3xl focus-within:border-pertamina-pastel-blue transition-all duration-200`}
+              formik.touched.username && formik.errors.username ? '!border-pertamina-red' : ''
+            } focus-within:border-pertamina-pastel-blue rounded-3xl border-2 border-gray-200 px-3 py-6 transition-all duration-200`}
           >
             <InputGroupInput
               id="username"
@@ -158,16 +134,11 @@ export default function SignUp({ formik }: Props) {
             <InputGroupAddon align="inline-end">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <InputGroupButton
-                    className="rounded-full text-gray-400"
-                    size="icon-xs"
-                  >
+                  <InputGroupButton className="rounded-full text-gray-400" size="icon-xs">
                     <UserRound className="size-6" />
                   </InputGroupButton>
                 </TooltipTrigger>
-                <TooltipContent>
-                  Username
-                </TooltipContent>
+                <TooltipContent>Username</TooltipContent>
               </Tooltip>
             </InputGroupAddon>
           </InputGroup>
@@ -179,12 +150,10 @@ export default function SignUp({ formik }: Props) {
                 exit={{ opacity: 0, scale: 0 }}
                 transition={{
                   duration: 0.2,
-                  scale: { type: "spring", visualDuration: 0.2, bounce: 0.2 },
+                  scale: { type: 'spring', visualDuration: 0.2, bounce: 0.2 },
                 }}
               >
-                <p className="ps-2 text-pertamina-red text-sm">
-                  {formik.errors.username}
-                </p>
+                <p className="text-pertamina-red ps-2 text-sm">{formik.errors.username}</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -193,10 +162,8 @@ export default function SignUp({ formik }: Props) {
         <motion.div whileTap={{ scale: 0.95 }}>
           <InputGroup
             className={`${
-              formik.touched.email && formik.errors.email
-                ? "!border-pertamina-red"
-                : ""
-            } border-2 py-6 px-3 border-gray-200 rounded-3xl focus-within:border-pertamina-pastel-blue transition-all duration-200`}
+              formik.touched.email && formik.errors.email ? '!border-pertamina-red' : ''
+            } focus-within:border-pertamina-pastel-blue rounded-3xl border-2 border-gray-200 px-3 py-6 transition-all duration-200`}
           >
             <InputGroupInput
               id="email"
@@ -211,16 +178,11 @@ export default function SignUp({ formik }: Props) {
             <InputGroupAddon align="inline-end">
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <InputGroupButton
-                    className="rounded-full text-gray-400"
-                    size="icon-xs"
-                  >
+                  <InputGroupButton className="rounded-full text-gray-400" size="icon-xs">
                     <Mail className="size-6" />
                   </InputGroupButton>
                 </TooltipTrigger>
-                <TooltipContent>
-                  Mail
-                </TooltipContent>
+                <TooltipContent>Mail</TooltipContent>
               </Tooltip>
             </InputGroupAddon>
           </InputGroup>
@@ -232,12 +194,10 @@ export default function SignUp({ formik }: Props) {
                 exit={{ opacity: 0, scale: 0 }}
                 transition={{
                   duration: 0.2,
-                  scale: { type: "spring", visualDuration: 0.2, bounce: 0.2 },
+                  scale: { type: 'spring', visualDuration: 0.2, bounce: 0.2 },
                 }}
               >
-                <p className="ps-2 text-pertamina-red text-sm">
-                  {formik.errors.email}
-                </p>
+                <p className="text-pertamina-red ps-2 text-sm">{formik.errors.email}</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -246,33 +206,29 @@ export default function SignUp({ formik }: Props) {
         <motion.div whileTap={{ scale: 0.95 }}>
           <InputGroup
             className={`${
-              formik.touched.password && formik.errors.password
-                ? "!border-pertamina-red"
-                : ""
-            } border-2 py-6 px-3 border-gray-200 rounded-3xl focus-within:border-pertamina-pastel-blue transition-all duration-200`}
+              formik.touched.password && formik.errors.password ? '!border-pertamina-red' : ''
+            } focus-within:border-pertamina-pastel-blue rounded-3xl border-2 border-gray-200 px-3 py-6 transition-all duration-200`}
           >
             <InputGroupInput
               id="password"
               tabIndex={5}
               placeholder="Masukkan Password"
               className={`!pl-1 !text-gray-600 ${
-                formik.values.password && psType == false
-                  ? "password-big-dots"
-                  : ""
+                formik.values.password && psType == false ? 'password-big-dots' : ''
               }`}
-              type={psType ? "text" : "password"}
+              type={psType ? 'text' : 'password'}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.password}
             />
             <InputGroupAddon align="inline-end">
               <InputGroupButton
-                className="rounded-full text-gray-400 hover:text-pertamina-pastel-blue"
+                className="hover:text-pertamina-pastel-blue rounded-full text-gray-400"
                 size="icon-xs"
                 onMouseEnter={() => setPsType(true)}
                 onMouseLeave={() => setPsType(false)}
               >
-                <Eye className="size-6 " />
+                <Eye className="size-6" />
               </InputGroupButton>
             </InputGroupAddon>
           </InputGroup>
@@ -284,12 +240,10 @@ export default function SignUp({ formik }: Props) {
                 exit={{ opacity: 0, scale: 0 }}
                 transition={{
                   duration: 0.2,
-                  scale: { type: "spring", visualDuration: 0.2, bounce: 0.2 },
+                  scale: { type: 'spring', visualDuration: 0.2, bounce: 0.2 },
                 }}
               >
-                <p className="ps-2 text-pertamina-red text-sm">
-                  {formik.errors.password}
-                </p>
+                <p className="text-pertamina-red ps-2 text-sm">{formik.errors.password}</p>
               </motion.div>
             )}
           </AnimatePresence>

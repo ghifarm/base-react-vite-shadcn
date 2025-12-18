@@ -1,25 +1,25 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
 interface LoadingSpinnerProps {
-    size?: number;
+  size?: number;
 }
 
 const LoadingSpinner = ({ size = 48 }: LoadingSpinnerProps) => {
-    const loaderStyle: CSSProperties = {
-        width: `${size}px`,
-        height: `${size}px`,
-        display: "block",
-        // margin: "15px auto",
-        position: "relative",
-        color: "#005fad",
-        boxSizing: "border-box",
-        animation: "rotation 1s linear infinite",
-    };
+  const loaderStyle: CSSProperties = {
+    width: `${size}px`,
+    height: `${size}px`,
+    display: 'block',
+    // margin: "15px auto",
+    position: 'relative',
+    color: '#005fad',
+    boxSizing: 'border-box',
+    animation: 'rotation 1s linear infinite',
+  };
 
-    return (
-        <>
-            <style>
-                {`
+  return (
+    <>
+      <style>
+        {`
                     @keyframes rotation {
                         0% {
                             transform: rotate(0deg);
@@ -52,10 +52,10 @@ const LoadingSpinner = ({ size = 48 }: LoadingSpinnerProps) => {
                         transform: scale(0.5) translate(-${size}px, -${size}px);
                     }
                 `}
-            </style>
-            <span className="loader" style={loaderStyle}></span>
-        </>
-    );
+      </style>
+      <span className="loader" style={loaderStyle}></span>
+    </>
+  );
 };
 
 export default LoadingSpinner;

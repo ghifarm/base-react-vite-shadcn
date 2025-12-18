@@ -1,6 +1,6 @@
-import { useMutation } from "@tanstack/react-query";
-import { supabase } from "./supabaseClient";
-import { useAuth } from "@/store/userAuth";
+import { useMutation } from '@tanstack/react-query';
+import { supabase } from './supabaseClient';
+import { useAuth } from '@/store/userAuth';
 
 interface SignupPayload {
   email: string;
@@ -29,10 +29,10 @@ export function useSignup() {
       if (error) throw error;
 
       const user = data.user;
-      if (!user) throw new Error("User tidak terbentuk setelah sign up");
+      if (!user) throw new Error('User tidak terbentuk setelah sign up');
 
       // 2️⃣ Insert data profile ke table profiles
-      const { error: profileError } = await supabase.from("profiles").insert({
+      const { error: profileError } = await supabase.from('profiles').insert({
         id: user.id, // foreign key ke auth.users
         name,
         username,
@@ -54,29 +54,30 @@ export function useSignIn() {
     mutationFn: async ({ identifier, password }: SignInPayload) => {
       let email = identifier;
 
-      if (!identifier.includes("@")) {
+      if (!identifier.includes('@')) {
         const { data: profile, error: usernameError } = await supabase
-          .from("profiles")
-          .select("email")
-          .eq("username", identifier)
+          .from('profiles')
+          .select('email')
+          .eq('username', identifier)
           .single();
 
-        if (usernameError || !profile)
-          throw new Error("Username tidak ditemukan");
+        if (usernameError || !profile) throw new Error('Username tidak ditemukan');
 
         email = profile.email;
       }
 
-      const { data: authData, error: authError } =
-        await supabase.auth.signInWithPassword({ email, password });
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
 
       if (authError) throw authError;
-      if (!authData.user) throw new Error("Login gagal");
+      if (!authData.user) throw new Error('Login gagal');
 
       const { data: profile, error: profileError } = await supabase
-        .from("profiles")
-        .select("*")
-        .eq("id", authData.user.id)
+        .from('profiles')
+        .select('*')
+        .eq('id', authData.user.id)
         .single();
 
       if (profileError) throw profileError;

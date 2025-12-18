@@ -1,6 +1,6 @@
-import { create } from "zustand";
-import Cookies from "js-cookie";
-import { supabase } from "@/api/supabaseClient";
+import { create } from 'zustand';
+import Cookies from 'js-cookie';
+import { supabase } from '@/api/supabaseClient';
 
 interface Profile {
   id: string;
@@ -20,11 +20,7 @@ interface AuthState {
   profile: Profile | null;
   isAuthenticated: boolean;
 
-  login: (payload: {
-    access_token: string;
-    refresh_token: string;
-    profile: Profile;
-  }) => void;
+  login: (payload: { access_token: string; refresh_token: string; profile: Profile }) => void;
 
   logout: () => void;
   restore: () => void;
@@ -43,15 +39,15 @@ export const useAuth = create<AuthState>((set, get) => ({
       isAuthenticated: true,
     });
 
-    Cookies.set("sb_access_token", access_token, { expires: 7 });
-    Cookies.set("sb_refresh_token", refresh_token, { expires: 7 });
-    Cookies.set("sb_profile", JSON.stringify(profile), { expires: 7 });
+    Cookies.set('sb_access_token', access_token, { expires: 7 });
+    Cookies.set('sb_refresh_token', refresh_token, { expires: 7 });
+    Cookies.set('sb_profile', JSON.stringify(profile), { expires: 7 });
   },
 
   logout: () => {
-    Cookies.remove("sb_access_token");
-    Cookies.remove("sb_refresh_token");
-    Cookies.remove("sb_profile");
+    Cookies.remove('sb_access_token');
+    Cookies.remove('sb_refresh_token');
+    Cookies.remove('sb_profile');
 
     set({
       session: { access_token: null, refresh_token: null },
@@ -61,9 +57,9 @@ export const useAuth = create<AuthState>((set, get) => ({
   },
 
   restore: () => {
-    const access = Cookies.get("sb_access_token");
-    const refresh = Cookies.get("sb_refresh_token");
-    const profileCookie = Cookies.get("sb_profile");
+    const access = Cookies.get('sb_access_token');
+    const refresh = Cookies.get('sb_refresh_token');
+    const profileCookie = Cookies.get('sb_profile');
 
     if (!access || !refresh || !profileCookie) return;
 
@@ -84,7 +80,7 @@ export const useAuth = create<AuthState>((set, get) => ({
     });
 
     if (error) {
-      console.error("Refresh token gagal:", error);
+      console.error('Refresh token gagal:', error);
       get().logout();
       return;
     }
@@ -92,14 +88,14 @@ export const useAuth = create<AuthState>((set, get) => ({
     const { session } = data;
 
     if (!session) {
-      console.error("Session tidak tersedia setelah refresh");
+      console.error('Session tidak tersedia setelah refresh');
       get().logout();
       return;
     }
 
     // update cookie & zustand
-    Cookies.set("sb_access_token", session.access_token);
-    Cookies.set("sb_refresh_token", session.refresh_token);
+    Cookies.set('sb_access_token', session.access_token);
+    Cookies.set('sb_refresh_token', session.refresh_token);
 
     set({
       session: {
