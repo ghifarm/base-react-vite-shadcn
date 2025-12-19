@@ -50,7 +50,9 @@ export function AppSidebar() {
       <SidebarContent className="rounded-2xl">
         <SidebarGroup>
           {/* This label auto-hides when collapsed */}
-          <SidebarGroupLabel>SPBU</SidebarGroupLabel>
+          <SidebarGroupLabel className="whitespace-nowrap transition-all duration-200 ease-out group-data-[collapsible=icon]:w-0 group-data-[collapsible=icon]:translate-x-2 group-data-[collapsible=icon]:overflow-hidden group-data-[collapsible=icon]:opacity-0">
+            SPBU
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
@@ -60,11 +62,12 @@ export function AppSidebar() {
                     asChild
                     tooltip={item.title}
                     isActive={path === item.url}
-                    // className="h-10 py-6 text-gray-500"
                   >
                     <Link to={item.url} className="">
                       <item.icon className="!size-6" />
-                      <span>{item.title}</span>
+                      <span className="whitespace-nowrap transition-all duration-200 ease-out group-data-[collapsible=icon]:w-0 group-data-[collapsible=icon]:translate-x-2 group-data-[collapsible=icon]:overflow-hidden group-data-[collapsible=icon]:opacity-0">
+                        {item.title}
+                      </span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
