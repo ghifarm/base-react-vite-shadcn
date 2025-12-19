@@ -18,6 +18,7 @@ import pertareLogo from '@/assets/image/logo.png';
 import logoIcon from '@/assets/image/logo-only.svg';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { useMemo } from 'react';
 
 const items = [
   { title: 'Home', url: '/', icon: Home },
@@ -29,6 +30,10 @@ const items = [
 
 export function AppSidebar() {
   const path = useLocation().pathname;
+  const isActive = (pathname, url) => {
+    if (url === '/') return pathname === '/';
+    return pathname === url || pathname.startsWith(`${url}/`);
+  };
 
   return (
     <Sidebar collapsible="icon" className="!rounded-2xl border-none p-4">
@@ -61,7 +66,7 @@ export function AppSidebar() {
                     size={'lg'}
                     asChild
                     tooltip={item.title}
-                    isActive={path === item.url}
+                    isActive={isActive(path, item.url)}
                   >
                     <Link to={item.url} className="">
                       <item.icon className="!size-6" />

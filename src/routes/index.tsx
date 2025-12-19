@@ -7,7 +7,7 @@ import Login from '../pages/Login';
 
 // SPBU Pages
 import Spbu from '../pages/Spbu';
-import CreateSpbu from '../pages/Spbu/Create';
+import SpbuForm from '../pages/Spbu/Form';
 
 export const router = createBrowserRouter([
   {
@@ -15,8 +15,13 @@ export const router = createBrowserRouter([
     element: <Protected />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'spbu', element: <Spbu /> },
-      { path: 'spbu/create', element: <CreateSpbu /> },
+      {
+        path: 'spbu',
+        children: [
+          { index: true, element: <Spbu /> },
+          { path: 'form', element: <SpbuForm /> },
+        ],
+      },
       { path: '*', element: <Navigate to="/" replace /> },
     ],
   },

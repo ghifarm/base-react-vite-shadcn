@@ -23,7 +23,7 @@ export default function MainLayout() {
             <Navbar profile={user || { name: 'Guest', email: '' }} logout={logout} />
           </header>
 
-          <section className="mt-2 flex-1 overflow-auto rounded-2xl bg-gray-200">
+          <section className="mt-2 flex-1 overflow-auto rounded-2xl bg-gray-200 p-4">
             <Outlet />
           </section>
         </main>

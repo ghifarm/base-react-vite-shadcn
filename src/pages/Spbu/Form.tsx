@@ -3,17 +3,19 @@ import { Button } from '@/components/ui/button';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { FileExportIcon, PlusSignIcon } from '@hugeicons/core-free-icons';
 import { Link } from 'react-router-dom';
+import FormSpbu from '@/components/modules/spbu/FormSpbu';
 
-export default function index() {
+export default function Form() {
   return (
-    <>
+    <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
         <div>
           <Typography variant="h4" className="mb-2">
-            Data SPBU
+            Tambah SPBU
           </Typography>
-          <Typography variant="body" className="text-gray-500">
-            Daftar SPBU beserta informasi ketersediaan lot dan pemanfaatan area.
+          <Typography variant="body" className="w-2/3 text-gray-500">
+            Form untuk menambahkan data SPBU baru beserta informasi ketersediaan lot dan pemanfaatan
+            area.
           </Typography>
         </div>
         <div className="flex gap-4">
@@ -29,6 +31,15 @@ export default function index() {
           </Button>
         </div>
       </div>
-    </>
+
+      <div className="grid grid-cols-3 gap-4">
+        <div className="col-span-2">
+          <FormSpbu />
+        </div>
+        <div>
+          
+        </div>
+      </div>
+    </div>
   );
 }
